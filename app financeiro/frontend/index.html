@@ -1,0 +1,161 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Controle Financeiro</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- LOGIN -->
+    <section id="telaLogin" class="container login-container">
+
+        <h1>Controle Financeiro</h1>
+        <p>Entre na sua conta</p>
+
+        <form id="formLogin">
+            <input type="email" id="loginEmail"
+                placeholder="Seu e-mail" required>
+
+            <input type="password" id="loginSenha"
+                placeholder="Sua senha" required>
+
+            <button type="submit">Entrar</button>
+        </form>
+
+        <p>
+            Não possui uma conta?
+            <a href="#" id="irCadastro">Cadastre-se</a>
+        </p>
+
+        <p id="mensagemLogin"></p>
+    </section>
+
+    <!-- CADASTRO -->
+    <section id="telaCadastro" class="container login-container hidden">
+
+        <h1>Criar conta</h1>
+        <p>Preencha seus dados</p>
+
+        <form id="formCadastro">
+
+            <input type="text" id="cadastroNome"
+                placeholder="Nome completo" required>
+
+            <input type="email" id="cadastroEmail"
+                placeholder="E-mail" required>
+
+            <input type="password" id="cadastroSenha"
+                placeholder="Senha" required>
+
+            <button type="submit">Cadastrar</button>
+
+        </form>
+
+        <p>
+            Já possui uma conta?
+            <a href="#" id="irLogin">Fazer login</a>
+        </p>
+
+        <p id="mensagemCadastro"></p>
+    </section>
+
+    <!-- DASHBOARD -->
+    <main id="dashboard" class="hidden">
+
+        <header>
+            <h1>Meu Controle Financeiro</h1>
+            <button id="btnSair">Sair</button>
+        </header>
+
+        <div class="conteudo">
+
+            <h2>Resumo financeiro</h2>
+
+            <!-- CARDS -->
+            <section class="cards">
+
+                <div class="card entrada">
+                    <h3>Total de entradas</h3>
+                    <p id="totalEntradas">R$ 0,00</p>
+                </div>
+
+                <div class="card saida">
+                    <h3>Total de saídas</h3>
+                    <p id="totalSaidas">R$ 0,00</p>
+                </div>
+
+                <div class="card saldo">
+                    <h3>Saldo final</h3>
+                    <p id="resultadoFinal">R$ 0,00</p>
+                </div>
+
+            </section>
+
+            <!-- FORMULÁRIO FINANCEIRO -->
+            <section class="formulario">
+
+                <h2>Nova movimentação</h2>
+
+                <form id="formMovimentacao">
+
+                    <input type="text" id="descricao"
+                        placeholder="Descrição da movimentação"
+                        required>
+
+                    <input type="number" id="valor"
+                        placeholder="Valor (R$)"
+                        min="0.01" step="0.01" required>
+
+                    <select id="tipo" required>
+                        <option value="">Selecione o tipo</option>
+                        <option value="entrada">Entrada</option>
+                        <option value="saida">Saída</option>
+                    </select>
+
+                    <button type="submit">Adicionar movimentação</button>
+
+                </form>
+
+                <p id="mensagemFinanceiro"></p>
+
+            </section>
+
+            <!-- HISTÓRICO -->
+            <section class="historico">
+
+                <h2>Histórico de movimentações</h2>
+
+                <div class="tabela-container">
+
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Descrição</th>
+                                <th>Tipo</th>
+                                <th>Valor</th>
+                                <th>Data</th>
+                                <th>Ação</th>
+                            </tr>
+                        </thead>
+
+                        <tbody id="listaMovimentacoes">
+                        </tbody>
+                    </table>
+
+                </div>
+
+            </section>
+
+        </div>
+
+    </main>
+
+    <script src="script.js"></script>
+
+</body>
+</html>
